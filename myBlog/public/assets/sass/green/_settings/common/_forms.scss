@@ -1,0 +1,73 @@
+/* Requires
+   globals.css */
+
+/* Standard Forms ---------------------- */
+
+  form { margin: 0 0 ($formSpacing * $ratio); }
+
+  .row form .row { margin: 0 (-($formSpacing / 2));
+
+    .column, .columns { padding: 0 ($formSpacing / 2); }
+
+    &.collapse { margin: 0;
+      .column, .columns { padding: 0; }
+    }
+  }
+
+  label {
+    font-size: ms(0);
+    font-family: $alternateHeaderFontFamily;
+    cursor: pointer;
+    display: block;
+    font-weight: $labelFontWeight;
+    margin-bottom: $labelBtmMargin;
+
+    &.right { float: none; text-align: right; }
+    &.inline { line-height: (ms(0) + ($formSpacing * 1.5)); margin: 0 0 $formSpacing 0; }
+    i {
+      font-family: $bodyFontFamily;
+      font-weight: normal;
+      font-style: italic;
+      text-transform: none;
+    }
+  }
+  .additional { font-family: $bodyFontFamily; font-weight: normal; font-style: italic; margin: 0 20px 0 5px; }
+
+  input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea { background-color: $inputBgColor; font-family: $alternateHeaderFontFamily; border: $inputBorderWidth $inputBorderStyle $inputBorderColor; @include border-radius($inputBorderRadius); @include box-shadow(0 1px 1px #ffffff, inset 0 1px 4px rgba(0,0,0,0.15)); color: $inputFontColor; display: block; font-size: $inputFontSize; margin: 0 0 $formSpacing 0; padding: 0 5px; height: 35px; width: 100%; @include transition(all 0.15s linear); outline: none;
+
+    &:focus { background: $inputFocusBgColor; }
+    &[disabled] { background-color: #ddd; }
+  }
+  textarea {
+    height: auto;
+    line-height: 18px;
+    overflow-y: auto;
+    padding: 5px
+  }
+  .ie8 {
+    input {
+      line-height: 35px;
+    }
+    input, textarea {
+      border: 1px solid $inputBorderColor;
+      &:focus {
+        border-color: $inputFocusBorderColor;
+      }
+    }
+  }
+
+  select { width: 100%; }
+
+  /* Fieldsets */
+  fieldset { border: solid 1px #ddd; @include border-radius($fieldsetBorderRadius); padding: 12px 12px 0; margin: 18px 0;
+
+    legend { font-weight: bold; background: $white; padding: 0 3px; margin: 0; margin-#{$defaultFloat}: -3px; }
+  }
+
+  /* Errors */
+  .error input, input.error, .error textarea, textarea.error { border-color: $alertColor; background-color: rgba($alertColor, 0.1); }
+  .error label, label.error { color: $alertColor; }
+  .error small, small.error { display: block; padding: 6px 4px; margin-top: -($formSpacing) - 1; margin-bottom: $formSpacing; background: $alertColor; color: #fff; font-size: ms(0) - 2; font-weight: bold; @include border-corner-radius(bottom, $defaultFloat, 2px); @include border-corner-radius(bottom, $defaultOpposite, $inputBorderRadius); }
+  .error textarea, textarea.error {
+    &:focus { background: darken($white, 2%); border-color: darken($white, 30%); }
+  }

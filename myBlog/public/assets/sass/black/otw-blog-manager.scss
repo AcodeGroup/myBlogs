@@ -1,0 +1,371 @@
+@import "settings";
+@import "compass/css3";
+@import "_settings/functions/all";
+@import "_settings/mixins/clearfix";
+@import "_settings/mixins/adorable-mixins";
+@import "modular-scale";
+
+
+
+// Blog Post
+
+.otw-sc-blog-post {
+  margin-bottom: $columnGutter + 10;
+  .post-title {
+    display: block;
+    position: relative;
+    h3 {
+      padding: 0 40px 0 0;
+      margin-bottom: 15px;
+      font-size: ms(3);
+      background-image: none;
+      a {
+				@include transition(color 250ms ease-in-out);
+        &:link, &:visited {
+          color: $headerFontColor;
+        }
+        &:hover, &:active {
+          color: $mainColor;
+        }
+      }
+    }
+    .comments {
+      @include dot;
+      font-family: Arial, sans-serif;
+      position: absolute;
+      top: 0;
+      right: 0;
+      a {
+        color: $white;
+        display: block;
+      }
+    }
+  }
+  .post-meta {
+    @include post-meta;
+    .date, .author, .tags, .categories {
+      padding-left: 15px;
+      background-image: url("../../images/sprite-icons.png");
+      background-repeat: no-repeat;
+      margin-right: 15px;
+    }
+    .date {
+      background-position: 0 -5px;
+    }
+    .author {
+      background-position: 0 -25px;
+    }
+    .tags {
+      background-position: 0 -45px;
+    }
+    .categories {
+      background-position: 0 -65px;
+    }
+  }
+  .text {
+    margin-top: $columnGutter/2;
+  }
+  .otw-post {
+    margin-bottom: 1em;
+  }
+  .post-more {
+    @include clearfix();
+  }
+  &.no-meta {
+    .post-title {
+      margin-bottom: 20px;
+      h3 {
+        padding: 0;
+      }
+    }
+  }
+  &.one-column {
+    .tags {
+      background-position: 0 -45px;
+      display: inline-block;
+      float: right;
+    }
+    .categories {
+      background-position: 0 -65px;
+      display: inline-block;
+      float: right;
+    }
+    @media only screen and (max-width: $screenSmall) {
+      .tags, .categories {
+        display: inline;
+        float: none;
+      }
+    }
+  }
+}
+
+// Single Post Page
+.otw-single-blog-post {
+  position: relative;
+  .post-image {
+    margin-bottom: $columnGutter;
+  }
+  .post-meta {
+    @include post-meta;
+    .date, .author, .tags, .categories {
+      padding-left: 15px;
+      background-image: url("../../images/sprite-icons.png");
+      background-repeat: no-repeat;
+      margin-right: 15px;
+    }
+    .date {
+      background-position: 0 -5px;
+    }
+    .author {
+      background-position: 0 -25px;
+    }
+    .tags {
+      background-position: 0 -45px;
+    }
+    .categories {
+      background-position: 0 -65px;
+    }
+  }
+  .comments {
+    @include dot;
+    font-size: ms(1);
+    position: absolute;
+    top: 0;
+    right: 0;
+    a {
+      color: $white;
+      display: block;
+      height: $carbonSectionHeight;
+      width: $carbonSectionHeight;
+    }
+  }
+  .post-content {
+    margin-bottom: 30px;
+  }
+  .related-posts {
+    background: transparent url("../../images/hr-1.png") repeat-x center top;
+    margin-top: 25px;
+    padding-top: 25px;
+    .widget-title {
+      background-image: none;
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      vertical-align: top;
+    }
+    .otw-list {
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+
+// Comment form
+#comments-section {
+  h3 { margin: 25px 0; }
+  margin-bottom: 50px;
+  .comment-wrapper {
+    background: transparent url("../../images/hr-1.png") repeat-x center bottom;
+    padding-bottom: 20px;;
+    margin-bottom: 20px;
+    position: relative;
+    &.reply-level-one {
+      padding-left: 40px;
+    }
+    &.reply-level-two {
+      padding-left: 80px;
+    }
+    &.reply-level-three {
+      padding-left: 120px;
+    }
+    &.reply-level-four {
+      padding-left: 160px;
+    }
+    &.reply-level-five {
+      padding-left: 200px;
+    }
+    .image {
+      display: block;
+      float: left;
+      height: 70px;
+      width: 70px;
+      margin: 0;
+      position: relative;
+    }
+    .comment-content {
+      padding-left: 95px;
+    }
+    .comment-author {
+      font-size: ms(1);
+      font-family: $alternateHeaderFontFamily;
+    }
+    .post-date {
+      font-family: $alternateHeaderFontFamily;
+      padding-left: 7px;
+    }
+    .comment-body-text {
+      margin-top: 10px;
+    }
+    .comment-reply {
+      font-size: ms(0);
+      .otw-button {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+#comment-form-wrapper {
+  label {
+    display: inline-block;
+    width: 110px;
+    max-width: 100%;
+    vertical-align: top;
+  }
+  input {
+    display: inline-block;
+    width: 280px;
+    max-width: 100%;
+  }
+  textarea {
+    display: inline-block;
+    width: 440px;
+    max-width: 100%;
+  }
+  .form-submit {
+    padding-left: 110px;
+  }
+  @media only screen and (max-width: $screenSmall) {
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+    }
+    .form-submit {
+      padding-left: 0;
+    }
+  }
+}
+
+.otw-post-archive {
+  background: url("../../images/hr-1.png") repeat-x center bottom;
+  position: relative;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  .image {
+    display: block;
+    width: 180px;
+    height: 130px;
+    float: left;
+  }
+  .post-body { padding-left: 205px; }
+	@media only screen and (max-width: $screenSmall) {
+	  .image { float: none; }
+	  .post-body {
+	    margin-top: 20px;
+	    padding-left: 0;
+	  }
+	}
+  .post-title {
+    font-size: ms(3);
+    margin: 0;
+    padding: 0;
+    background-image: none;
+    a {
+			@include transition(color 250ms ease-in-out);
+      &:link, &:visited {
+        color: $headerFontColor;
+      }
+      &:hover, &:active {
+        color: $mainColor;
+      }
+    }
+  }
+  .post-meta {
+    @include post-meta;
+    .date, .author, .tags, .categories {
+      padding-left: 15px;
+      background-image: url("../../images/sprite-icons.png");
+      background-repeat: no-repeat;
+      margin-right: 15px;
+    }
+    .date {
+      background-position: 0 -5px;
+    }
+    .author {
+      background-position: 0 -25px;
+    }
+    .tags {
+      background-position: 0 -45px;
+    }
+    .categories {
+      background-position: 0 -65px;
+    }
+  }
+  .text {
+    margin-top: $columnGutter/2;
+  }
+  .otw-post {
+    margin-bottom: 1em;
+  }
+  .post-more {
+    @include clearfix();
+  }
+}
+
+
+// Latest Posts Items Widget Styles
+.otw-widget-blog-latest {
+  .widget-row {
+    overflow: hidden;
+    min-height: 70px;
+    margin-bottom: 17px;
+    padding-bottom: 22px;
+    background: transparent url("../../images/hr-1.png") repeat-x left bottom;
+
+    .image {
+      float: left;
+  		display: block;
+  		position: relative;
+      width: 70px;
+      height: 70px;
+    }
+
+    #{headings()} {
+      font-size: ms(1);
+      margin: 0 0 10px 80px !important;
+      padding: 0 !important;
+      background: transparent none;
+      a {
+        @include transition(color 150ms ease-in-out);
+        &:link, &:visited {
+          color: $headerFontColor;
+        }
+        &:hover, &:active {
+          color: $mainColor;
+        }
+      }
+    }
+    p {
+      margin: 0 0 0 80px;
+      line-height: ms(1);
+    }
+  }
+  footer & {
+    .widget-row {
+      margin-bottom: 15px;
+      padding-bottom: 0;
+      background: transparent none;
+
+      #{headings()} {
+        font-size: 12px;
+        padding: 0;
+      }
+      p {
+        font-size: 11px;
+        line-height: 15px;
+      }
+    }
+  }
+}

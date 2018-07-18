@@ -1,0 +1,150 @@
+@import "settings";
+@import "compass/css3";
+@import "compass/css3/text-shadow";
+@import "_settings/functions/all";
+@import "_settings/mixins/clearfix";
+
+
+
+/* Normal Buttons ---------------------- */
+.otw-button {
+  background-color: $mainColor;
+  border: 1px solid rgba(128,128,128,0.4);
+  color: $white !important;
+  cursor: pointer;
+  display: inline-block !important;
+  font-family: $alternateHeaderFontFamily;
+  font-size: ms(0) - 1;
+  font-weight: bold;
+  line-height: 1em;
+  margin: 0 0 5px 0;
+  outline: none;
+  padding: 8px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: baseline;
+  @include text-shadow(0 1px 0 rgba(0,0,0,0.25));
+  @include background-image(linear-gradient(rgba(255,255,255,0.2), rgba(0,0,0,0.15)));
+  background-repeat: repeat-x;
+  white-space: nowrap;
+
+  /* Hovers */
+  &:hover {
+    color: $white;
+    @include background-image(linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.05)));
+    @include text-shadow(0 1px 0 rgba(0,0,0,0.6));
+    border: 1px solid rgba(128,128,128,0.6);
+  }
+  &:active  {
+    color: darken(($white), 8%);
+    @include background-image(linear-gradient(rgba(0,0,0,0.10), rgba(0,0,0,0.25)));
+    @include box-shadow(0 3px 6px rgba(0,0,0,0.25) inset);
+    @include text-shadow(0 1px 0 rgba(0,0,0,0.25));
+    border: 1px solid rgba(128,128,128,0.75);
+  }
+  /* IE Filters for IE8 */
+  .ie8 & {
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33ffffff', endColorstr='#40000000',GradientType=0 );
+    &:hover {
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1affffff', endColorstr='#0d000000',GradientType=0 );
+    }
+    &:active  {
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1affffff', endColorstr='#66000000',GradientType=0 );
+    }
+  }
+
+  /* SVG + opacity for IE9 */
+  .ie9 & {
+    position: relative;
+    &:after {
+      display:block;
+      content:'';
+      position:absolute;
+      top:0;
+      left: 0;
+      width:100%;
+      height:100%;
+      opacity: 0.12;
+      background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9ImczOTEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiMxMTExMTEiIG9mZnNldD0iMSIvPgo8L2xpbmVhckdyYWRpZW50Pgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2czOTEpIiAvPgo8L3N2Zz4=);
+   }
+    &:hover:after {
+      opacity: 0.05;
+    }
+    &:active:after  {
+      opacity: 0.2;
+    }
+  }
+
+
+  /* Sizes */
+  &.large {
+    font-size: ms(1) + 1;
+    padding: 10px 18px;
+    img { max-height: 20px; }
+    line-height: 17px;
+    i {
+      line-height: 13px
+    }
+  }
+  &.medium {
+    font-size: ms(0) - 1;
+    padding: 8px 16px;
+    img { max-height: 14px; }
+    line-height: 14px;
+    i {
+      line-height: 11px
+    }
+  }
+  &.small {
+    font-size: ms(0) - 2;
+    padding: 6px 11px;
+    img { max-height: 12px; }
+    line-height: 12px;
+    i {
+      line-height: 10px
+    }
+  }
+  &.tiny {
+    font-size: ms(0) - 4;
+    padding: 4px 9px;
+    img { max-height: 10px; }
+    line-height: 10px;
+    i {
+      line-height: 7px
+    }
+  }
+  &.expand {
+    width: 100%; text-align: center;
+  }
+
+  /* Radii */
+  &.radius, &.radius:after { @include border-radius($buttonRadius); }
+  &.round, &.round:after { @include border-radius(1000px); }
+
+  /* Icon buttons */
+
+  i {
+    display: block;
+    float: left;
+    margin: 0 6px 0 0;
+  }
+
+  img {
+    margin-right: 8px;
+  }
+
+  &.right-icon {
+    i {
+      float: right;
+      margin: 0 0 0 6px;
+    }
+    img {
+      float: right;
+      margin: 0 0 0 8px;
+    }
+  }
+}
+
+/* Don't use native buttons on iOS */
+input[type=submit].otw-button, button.otw-button { -webkit-appearance: none; }

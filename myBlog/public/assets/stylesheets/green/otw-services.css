@@ -1,0 +1,210 @@
+[class*="social foundicon-"]:before {
+  font-family: "SocialFoundicons";
+}
+
+[class*="general foundicon-"]:before {
+  font-family: "GeneralFoundicons";
+}
+
+.otw-sc-services {
+  margin-bottom: 30px;
+}
+.otw-sc-services.with-icon i {
+  background: #727272;
+  color: #ffffff;
+  display: inline-block;
+  text-align: center;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+  border-radius: 100px;
+  -webkit-transition: all 250ms ease-in-out;
+  -moz-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+}
+.otw-sc-services.with-icon:hover i {
+  background: #fd9309;
+}
+.otw-sc-services.with-left-icon i,
+.otw-sc-services.with-left-icon a > img {
+  position: absolute;
+}
+.otw-sc-services.with-left-icon div {
+  padding-left: 40px;
+}
+.otw-sc-services.with-left-icon.small div, .otw-sc-services.with-left-icon.small h3 {
+  padding-left: 48px;
+}
+.otw-sc-services.with-left-icon.small a > img {
+  max-height: 32px;
+}
+.otw-sc-services.with-left-icon.medium div, .otw-sc-services.with-left-icon.medium h3 {
+  padding-left: 62px;
+}
+.otw-sc-services.with-left-icon.medium a > img {
+  max-height: 48px;
+}
+.otw-sc-services.with-left-icon.large div, .otw-sc-services.with-left-icon.large h3 {
+  padding-left: 76px;
+}
+.otw-sc-services.with-left-icon.large a > img {
+  max-height: 64px;
+}
+.otw-sc-services.small i {
+  font-size: 14px;
+  line-height: 32px;
+  width: 32px;
+  height: 32px;
+}
+.otw-sc-services.medium i {
+  font-size: 28px;
+  line-height: 48px;
+  width: 48px;
+  height: 48px;
+}
+.otw-sc-services.large i {
+  font-size: 42px;
+  line-height: 64px;
+  width: 64px;
+  height: 64px;
+}
+.otw-sc-services .widget-title {
+  font-size: 17px;
+  margin: 13px 0;
+  padding-bottom: 0;
+  background-image: none;
+}
+.otw-sc-services .widget-title a {
+  -webkit-transition: color 250ms ease-in-out;
+  -moz-transition: color 250ms ease-in-out;
+  -o-transition: color 250ms ease-in-out;
+  transition: color 250ms ease-in-out;
+}
+.otw-sc-services .widget-title a:link, .otw-sc-services .widget-title a:visited {
+  color: #383838;
+}
+.otw-sc-services .widget-title a:hover, .otw-sc-services .widget-title a:active {
+  color: #fd9309;
+}
+.otw-sc-services.center {
+  text-align: center;
+}
+.otw-sc-services .titleseparator {
+  padding-top: 13px;
+  background: url("../../images/hr-1.png") repeat-x center top;
+}
+
+.otw-sc-boxed-services {
+  display: block;
+  padding: 20px 20px 10px 20px;
+  background-color: #ffffff;
+  overflow: hidden;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  border-top: 0;
+  padding: 0;
+}
+.otw-sc-boxed-services p {
+  margin-bottom: 10px;
+}
+.otw-sc-boxed-services .otw-row .otw-columns {
+  border-top: 1px solid #d8d8d8;
+  -webkit-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.7) inset, -1px 0 0 rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.7) inset, -1px 0 0 rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 1px 0 0 rgba(255, 255, 255, 0.7) inset, -1px 0 0 rgba(0, 0, 0, 0.1) inset;
+}
+.otw-sc-boxed-services .otw-row .otw-columns:first-child {
+  border-left: 0;
+}
+.otw-sc-boxed-services .otw-row .otw-columns:first-child .service-header {
+  -webkit-box-shadow: -1px 0 0 rgba(0, 0, 0, 0.25) inset;
+  -moz-box-shadow: -1px 0 0 rgba(0, 0, 0, 0.25) inset;
+  box-shadow: -1px 0 0 rgba(0, 0, 0, 0.25) inset;
+}
+.otw-sc-boxed-services .otw-row .otw-columns:last-child {
+  -webkit-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.7) inset;
+  -moz-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.7) inset;
+  box-shadow: 1px 0 0 rgba(255, 255, 255, 0.7) inset;
+}
+.otw-sc-boxed-services .otw-row .otw-columns:hover {
+  background-color: #f5f5f5;
+  border-top: 1px solid #fca393;
+}
+.otw-sc-boxed-services .otw-row .otw-columns:hover .service-header {
+  background-image: none;
+  background-color: #fd9309;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.2)), color-stop(100%, rgba(0, 0, 0, 0.15)));
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.15));
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.15));
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.15));
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.15));
+  -webkit-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.3) inset, -1px 0 0 rgba(0, 0, 0, 0.2) inset;
+  -moz-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.3) inset, -1px 0 0 rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 1px 0 0 rgba(255, 255, 255, 0.3) inset, -1px 0 0 rgba(0, 0, 0, 0.2) inset;
+}
+.otw-sc-boxed-services .otw-row .otw-columns:hover .otw-sc-services i {
+  background: #fd9309;
+}
+.ie8 .otw-sc-boxed-services .otw-row .otw-columns {
+  border-right: 1px solid #e5e5e5;
+}
+.ie8 .otw-sc-boxed-services .otw-row .otw-columns:last-child {
+  border-right: 0;
+}
+.otw-sc-boxed-services .service-header {
+  color: #ffffff;
+  -webkit-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.4) inset, -1px 0 0 rgba(0, 0, 0, 0.25) inset;
+  -moz-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.4) inset, -1px 0 0 rgba(0, 0, 0, 0.25) inset;
+  box-shadow: 1px 0 0 rgba(255, 255, 255, 0.4) inset, -1px 0 0 rgba(0, 0, 0, 0.25) inset;
+  font-family: Chivo, Arial, sans-serif;
+  text-shadow: 0 1px 0 white;
+  background-color: #888888;
+  background-image: none;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #b1b1b1), color-stop(100%, #888888));
+  background-image: -webkit-linear-gradient(#b1b1b1, #888888);
+  background-image: -moz-linear-gradient(#b1b1b1, #888888);
+  background-image: -o-linear-gradient(#b1b1b1, #888888);
+  background-image: linear-gradient(#b1b1b1, #888888);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  padding: 15px 18px;
+}
+.otw-sc-boxed-services .service-header [class*="foundicon-"] {
+  background-color: #c8c8c8;
+  display: inline-block;
+  font-size: 10px;
+  margin-right: 5px;
+  width: 24px;
+  height: 24px;
+  line-height: 23px;
+  text-align: center;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+  border-radius: 25px;
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), 0 2px 3px rgba(0, 0, 0, 0.35) inset;
+  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), 0 2px 3px rgba(0, 0, 0, 0.35) inset;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), 0 2px 3px rgba(0, 0, 0, 0.35) inset;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+.otw-sc-boxed-services .service-header.ui-state-active [class*="foundicon-"] {
+  background: #808080;
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 2px 3px rgba(0, 0, 0, 0.35) inset;
+  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 2px 3px rgba(0, 0, 0, 0.35) inset;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 2px 3px rgba(0, 0, 0, 0.35) inset;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.7);
+}
+.otw-sc-boxed-services .otw-sc-services {
+  padding: 20px 10px 0 20px;
+}
+.otw-sc-boxed-services .otw-sc-services .widget-title {
+  margin-top: 0;
+}

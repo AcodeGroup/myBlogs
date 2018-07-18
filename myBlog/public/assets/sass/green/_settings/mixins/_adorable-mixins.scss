@@ -1,0 +1,92 @@
+@mixin dot {
+  display: inline-block;
+  overflow: hidden;
+  font-family: $headerFontFamily;
+  font-weight: bold;
+  text-align: center;
+  font-size: 11px;
+  color: $white;
+  background: $mainColor;
+  padding: 3px 8px;
+  @include border-radius(3px);
+  @include box-shadow(0 1px 2px rgba(0,0,0,0.35));
+}
+
+@mixin panel-box {
+  display: block;
+  padding: 20px 20px 10px 20px;
+  background-color: #ffffff;
+    p {
+      margin-bottom: 10px;
+    }
+}
+
+@mixin header-row {
+  font-family: $headerFontFamily;
+  @include text-shadow(0 1px 0 $white);
+  [class*="foundicon-"] {
+    background-color: #c8c8c8;
+    display: inline-block;
+    font-size: 10px;
+    margin-right: 5px;
+    width: 24px;
+    height: 24px;
+    line-height: 23px;
+    text-align: center;
+    @include border-radius(25px);
+    @include box-shadow(0 1px 0 rgba(255,255,255,0.7), 0 2px 3px rgba(0,0,0,0.35) inset);
+    @include text-shadow(0 1px 1px rgba(255,255,255,0.7));
+  }
+  &.ui-state-active {
+    [class*="foundicon-"] {
+      background: #808080;
+      @include box-shadow(0 1px 0 rgba(255,255,255,0.5), 0 2px 3px rgba(0,0,0,0.35) inset);
+      @include text-shadow(0 1px 1px rgba(0,0,0,0.7));
+    }
+  }
+}
+
+@mixin gradient-regular {
+  background-color: #e0e0e0;
+  background-image: none;
+  @include background-image(linear-gradient(#ececec, #e0e0e0));
+}
+
+@mixin gradient-hover {
+  background-color: #cdcdcd;
+  background-image: none;
+  @include background-image(linear-gradient(#eaeaea, #cdcdcd));
+}
+
+@mixin gradient-active {
+  background-color: #888888;
+  background-image: none;
+  @include background-image(linear-gradient(#b1b1b1, #888888));
+}
+
+@mixin rounded-shadow-box {
+  border: 1px solid #e4e4e4;
+  overflow: hidden;
+  @include border-radius($borderRadius);
+  @include box-shadow(0 1px 0 rgba(0,0,0,0.1));
+}
+
+@mixin rounded-shadow-only-box {
+  overflow: hidden;
+  @include border-radius($borderRadius);
+  @include box-shadow(0 1px 1px rgba(0,0,0,0.25));
+}
+
+@mixin post-meta {
+  background: transparent url("../../images/hr-1.png") repeat-x center bottom;
+  font-size: ($baseFontSize - 2);
+	line-height: 14px;
+	margin: 0 0 25px 0;
+	padding: 12px 0;
+  &:before {
+    display: block;
+    height: 15px;
+    content: ' ';
+    background: transparent url("../../images/hr-1.png") repeat-x center top;
+  }
+}

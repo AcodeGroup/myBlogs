@@ -1,0 +1,154 @@
+@import "settings";
+@import "compass/css3";
+@import "_settings/functions/all";
+@import "_settings/mixins/clearfix";
+@import "_settings/mixins/adorable-mixins";
+
+
+
+// Foundation Icon fonts
+[class*="social foundicon-"]:before {
+  font-family: "SocialFoundicons";
+}
+[class*="general foundicon-"]:before {
+  font-family: "GeneralFoundicons";
+}
+
+// Services
+.otw-sc-services {
+  margin-bottom: 30px;
+  &.with-icon {
+    i {
+      background: #727272;
+      color: #ffffff;
+      display: inline-block;
+      text-align: center;
+      @include border-radius(100px);
+      @include transition(all 250ms ease-in-out);
+    }
+    &:hover i {
+      background: $mainColor;
+    }
+  }
+  &.with-left-icon {
+    i,
+    a > img  {
+      position: absolute;
+    }
+    div { padding-left: 40px; }
+    &.small {
+      div, h3 { padding-left: 48px; }
+      a > img { max-height: 32px; }
+    }
+    &.medium {
+      div, h3 { padding-left: 62px; }
+      a > img { max-height: 48px; }
+    }
+    &.large {
+      div, h3 { padding-left: 76px; }
+      a > img { max-height: 64px; }
+    }
+  }
+  &.small {
+    i {
+      font-size: 14px;
+      line-height: 32px;
+      width: 32px;
+      height: 32px;
+    }
+  }
+  &.medium {
+    i {
+      font-size: 28px;
+      line-height: 48px;
+      width: 48px;
+      height: 48px;
+    }
+  }
+  &.large {
+    i {
+      font-size: 42px;
+      line-height: 64px;
+      width: 64px;
+      height: 64px;
+    }
+  }
+  .widget-title {
+    font-size: 17px;
+    margin: 13px 0;
+    padding-bottom: 0;
+    background-image: none;
+    a {
+			@include transition(color 250ms ease-in-out);
+      &:link, &:visited {
+        color: $headerFontColor;
+      }
+      &:hover, &:active {
+        color: $mainColor;
+      }
+    }
+  }
+  &.center {
+    text-align: center;
+  }
+  .titleseparator {
+    padding-top: 13px;
+    background: url("../../images/hr-1.png") repeat-x center top;
+  }
+}
+
+// Boxed style services
+.otw-sc-boxed-services {
+  @include panel-box;
+  @include rounded-shadow-only-box;
+  border-top: 0;
+  padding: 0;
+  .otw-row {
+    .otw-columns {
+      border-top: 1px solid #d8d8d8;
+      @include box-shadow(1px 0 0 rgba(255,255,255,0.7) inset, -1px 0 0 rgba(0,0,0,0.1) inset);
+      &:first-child {
+        border-left: 0;
+          .service-header {
+            @include box-shadow(-1px 0 0 rgba(0,0,0,0.25) inset);
+          }
+      }
+      &:last-child {
+        @include box-shadow(1px 0 0 rgba(255,255,255,0.7) inset);
+      }
+      &:hover {
+        background-color: #f5f5f5;
+        border-top: 1px solid #fca393;
+        .service-header {
+          background-image: none;
+          background-color: $mainColor;
+          @include background-image(linear-gradient(rgba(255,255,255,0.2), rgba(0,0,0,0.15)));
+          @include box-shadow(1px 0 0 rgba(255,255,255,0.3) inset, -1px 0 0 rgba(0,0,0,0.2) inset);
+        }
+        .otw-sc-services i {
+          background: $mainColor;
+        }
+      }
+      .ie8 & {
+        border-right: 1px solid #e5e5e5;
+        &:last-child {
+          border-right: 0;
+        }
+      }
+    }
+  }
+  .service-header {
+    color: #ffffff;
+    @include box-shadow(1px 0 0 rgba(255,255,255,0.4) inset, -1px 0 0 rgba(0,0,0,0.25) inset);
+    @include header-row;
+    @include gradient-active;
+    @include text-shadow(0 1px 2px rgba(0,0,0,0.5));
+    padding: 15px 18px;
+  }
+  .otw-sc-services {
+    padding: 20px 10px 0 20px;
+    .widget-title {
+      margin-top: 0;
+    }
+  }
+}

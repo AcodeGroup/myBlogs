@@ -1,0 +1,133 @@
+@import "_settings/common/ratios";
+
+
+// Settings file containing Foundation defaults
+
+// Grid Settings
+
+$rowWidth: 960px !default;
+$columnGutter: 20px !default;
+$totalColumns: 24 !default;
+$mobileTotalColumns: 6 !default;
+$blockGridElements: 6 !default; // Highest number of block grid elements, Maximum of 24 supported
+$carbonSectionHeight: 25px;
+
+// Colors Settings
+
+$mainColor: #fd9309 !default;
+$alertColor: #c60f13 !default;
+$txtColor: #7e7e7e !default;
+$highlightColor: #ffff99 !default;
+$footerBackground: #386434  url("img/footer-background.png") repeat 0 0 !default;
+
+$menuTitleColor: #ffffff !default;
+$menuDropdownBackground: #2d502a !default;
+$boxedBackground: #f5f5f5;
+
+$black: #1c1c1c !default;
+$white: #ffffff !default;
+$red: #f83319 !default;
+$orange: #fd9309 !default;
+$green: #95c90a !default;
+$greenish: #0ac95b !default;
+$aqua: #0a95c9 !default;
+$blue: #0a3cc9 !default;
+$pink: #e90f75 !default;
+$purple: #830ac9 !default;
+$silver: #d8d8d8 !default;
+$brown: #d39f64 !default;
+
+$lineColor: #dddddd  !default;
+
+// Font Settings
+
+$fontSmoothing: antialiased;
+$headerFontFamily: Chivo, Arial, sans-serif !default;
+$alternateHeaderFontFamily: “Helvetca Neue”, Helvetica, Arial, sans-serif !default;
+$headerFontWeight: normal !default;
+$headerFontStyle: normal !default;
+$headerFontColor: #383838 !default;
+$bodyFontFamily: “Helvetca Neue”, Helvetica, Arial, sans-serif !default;
+$bodyFontWeight: normal !default;
+$bodyFontStyle: normal !default;
+$bodyFontColor: $txtColor !default;
+
+// Text Direction Settings
+
+$textDirection: ltr !default; // Controls default global text direction, 'rtl' or 'ltr'
+$defaultFloat: left !default; // Change this to 'right' for right-to-left languages
+$defaultOpposite: right !default; // Change this to 'left' for right-to-left languages
+
+@if $textDirection == ltr {
+  $defaultFloat: left;
+  $defaultOpposite: right;
+} @else {
+  $defaultFloat: right;
+  $defaultOpposite: left;
+}
+
+// Button Settings
+
+$buttonRadius: 3px !default;
+
+// Form Settings
+
+$formSpacing: 20px !default;
+$labelFontWeight: normal !default;
+$labelFontColor: $txtColor !default;
+$labelBtmMargin: 10px !default;
+$inputFontColor: lighten($txtColor, 20%) !default;
+$inputFontSize: 11px !default;
+$inputBgColor: #ededed !default;
+$inputFocusBgColor: #ffffff !default;
+$inputBorderColor: #dddddd !default;
+$inputFocusBorderColor: #eeeeee !default;
+$inputBorderStyle: solid !default;
+$inputBorderWidth: 0 !default;
+$inputBorderRadius: 3px !default;
+$fieldsetBorderRadius: 3px !default;
+
+// UI Settings
+
+$borderRadius: 3px !default;
+$thumbRadius: 5px !default;
+$progBarHeight: 25px !default;
+$progBarBorderColor: darken(#fff, 20%) !default;
+$progBarBorderSize: 1px !default;
+$progBarPad: 2px !default;
+$linkListBottomMargin: 17px -22px !default;
+$tableBorderRadius: 3px !default;
+
+// Clearing Settings
+
+$clearingBg: rgba(0,0,0,0.8) !default;
+$clearingOldBrowserBg: rgb(0,0,0) !default;
+$clearingCaptionBg: rgba(0,0,0,0.7) !default;
+$clearingCaptionOldBrowserBg: rgb(0,0,0) !default;
+$clearingCaptionFontColor: #fff !default;
+$clearingCloseColor: #fff !default;
+$clearingArrowColor: #fff !default;
+$clearingArrowSize: 16px !default;
+$clearingCarouselBg: rgba(0,0,0,0.75) !default;
+$clearingCarouselOldBrowserBg: rgb(0,0,0) !default;
+$clearingCarouselHeight: 150px !default;
+$clearingActiveImgHeight: 75% !default;
+$clearingCarouselThumbWidth: 175px;
+$clearingCarouselThumbActiveBorder: 4px solid rgb(255,255,255) !default;
+$clearingImgBg: rgba(0,0,0,0.75) !default;
+$clearingImgOldBrowserBg: rgb(0,0,0) !default;
+
+// Modular Scale Settings
+
+$ratio: $fifth !default; // Modular  https://github.com/scottkellum/modular-scale
+$baseFontSize: 13px !default;
+$importantModNum: 36px !default;
+$base-size: $baseFontSize $importantModNum;
+// http://www.modularscale.com by Tim Brown
+// https://github.com/scottkellum/modular-scale by scottkellum
+
+// Media Queries
+
+$screenSmall: 768px !default;
+$screenMedium: 1279px !default;
+$screenXlarge: 1441px !default;

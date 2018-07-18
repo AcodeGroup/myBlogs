@@ -1,0 +1,119 @@
+  /* Visibility Classes ---------------------- */
+  /*                                           */
+  /* Standard (large) display targeting */
+  .show-for-small,
+  .show-for-medium,
+  .show-for-medium-down,
+  .hide-for-large,
+  .hide-for-large-up,
+  .show-for-xlarge,
+  .show-for-print { display: none !important; }
+
+  .hide-for-small,
+  .hide-for-medium,
+  .hide-for-medium-down,
+  .show-for-large,
+  .show-for-large-up,
+  .hide-for-xlarge,
+  .hide-for-print { display: inherit !important; }
+
+  /* Very large display targeting */
+  @media only screen and (min-width: $screenXlarge) {
+    .hide-for-small,
+    .hide-for-medium,
+    .hide-for-medium-down,
+    .hide-for-large,
+    .show-for-large-up,
+    .show-for-xlarge { display: inherit !important; }
+
+    .show-for-small,
+    .show-for-medium,
+    .show-for-medium-down,
+    .show-for-large,
+    .hide-for-large-up,
+    .hide-for-xlarge { display: none !important; }
+  }
+
+  /* Medium display targeting */
+  @media only screen and (max-width: $screenMedium) and (min-width: $screenSmall) {
+    .hide-for-small,
+    .show-for-medium,
+    .show-for-medium-down,
+    .hide-for-large,
+    .hide-for-large-up,
+    .hide-for-xlarge { display: inherit !important; }
+
+    .show-for-small,
+    .hide-for-medium,
+    .hide-for-medium-down,
+    .show-for-large,
+    .show-for-large-up,
+    .show-for-xlarge { display: none !important; }
+  }
+
+  /* Small display targeting */
+  @media only screen and (max-width: $screenSmall - 1) {
+    .show-for-small,
+    .hide-for-medium,
+    .show-for-medium-down,
+    .hide-for-large,
+    .hide-for-large-up,
+    .hide-for-xlarge { display: inherit !important; }
+
+    .hide-for-small,
+    .show-for-medium,
+    .hide-for-medium-down,
+    .show-for-large,
+    .show-for-large-up,
+    .show-for-xlarge { display: none !important; }
+  }
+
+  /* Orientation targeting */
+  .show-for-landscape,
+  .hide-for-portrait { display: inherit !important; }
+  .hide-for-landscape,
+  .show-for-portrait { display: none !important; }
+
+  @media screen and (orientation: landscape) {
+    .show-for-landscape,
+    .hide-for-portrait { display: inherit !important; }
+    .hide-for-landscape,
+    .show-for-portrait { display: none !important; }
+  }
+
+  @media screen and (orientation: portrait) {
+    .show-for-portrait,
+    .hide-for-landscape { display: inherit !important; }
+    .hide-for-portrait,
+    .show-for-landscape { display: none !important; }
+  }
+
+  /* Touch-enabled device targeting */
+  .show-for-touch { display: none !important; }
+  .hide-for-touch { display: inherit !important; }
+  .touch .show-for-touch { display: inherit !important; }
+  .touch .hide-for-touch { display: none !important; }
+
+
+  /* 1280 tablet ------------ */
+  @media only screen and (max-device-width: 1280px) {
+
+  }
+
+  /* Covering almost all ----- */
+  @media only screen and (max-device-width: 800px), only screen and (device-width: 1024px) and (device-height: 600px), only screen and (width: 1280px) and (orientation: landscape), only screen and (device-width: 800px), only screen and (max-width: 767px) {
+    .flex-video { padding-top: 0; }
+  }
+
+  /* Between Medium and Small */
+  @media only screen and (max-width: $screenMedium) and (min-width: $screenSmall) {
+
+  }
+
+  /* Small Devices ------------ */
+  @media only screen and (max-width: $screenSmall - 1) {
+    /* Global Misc --- */
+    /*                 */
+    .left, .right { float: none; }
+    body { width: 100%; min-width: 0; margin-#{$defaultFloat}: 0; margin-#{$defaultOpposite}: 0; padding-#{$defaultFloat}: 0; padding-#{$defaultOpposite}: 0; }
+  }

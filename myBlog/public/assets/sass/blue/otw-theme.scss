@@ -1,0 +1,1235 @@
+@import "settings";
+@import "compass/css3";
+@import "_settings/functions/all";
+@import "_settings/mixins/clearfix";
+@import "_settings/mixins/font-size";
+@import "_settings/mixins/adorable-mixins";
+@import "_settings/common/globals";
+@import "_settings/common/typography";
+@import "_settings/common/forms";
+@import "_settings/common/mqueries";
+@import "modular-scale";
+
+
+//
+body {
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+}
+
+// Layout
+// Sidebars additional padding
+.otw-columns {
+  &.otw-left-sidebar-section {
+    padding-right: 30px;
+  }
+  &.otw-right-sidebar-section {
+    padding-left: 30px;
+  }
+}
+
+// Sidebars next to each other don't need additional padding
+.two-sidebars-left,
+.two-sidebars-right {
+  .otw-columns.otw-left-sidebar-section,
+  .otw-columns.otw-right-sidebar-section {
+    padding: 0 ($columnGutter/2);
+  }
+}
+
+#boxed-layout {
+  padding: 0 10px;
+  &.simple-boxed {
+    background: $boxedBackground;
+  }
+  #page-content,
+  #footer-contact-area-wrapper,
+  #page-footer {
+    max-width: 1000px;
+    margin: 0 auto;
+    @include box-shadow(0 1px 3px rgba(0,0,0,0.2));
+	}
+	#page-content {
+    background: #fff;
+	}
+	#top {
+    background: transparent url("img/header-background-short-header.png") repeat-x left top;
+	}
+}
+
+
+#page-content {
+  // Make fixed menus only for desktop
+  @media only screen and (min-width: $screenSmall) {
+  	&.fixed-position-menu #top {
+    	position: fixed;
+    	left: 0;
+    	right: 0;
+    	top: 0;
+    	background-color: #ffffff;
+    	z-index: 100;
+    	> .otw-row {
+      	border-bottom: 1px solid $lineColor;
+    	}
+  	}
+  	&.fixed-position-menu {
+  	  .page-title-wrapper {
+      	margin-top: 85px;
+    	}
+    	&.full-width-menu .page-title-wrapper {
+      	margin-top: 140px;
+    	}
+  	}
+  	&.full-width-menu .menu-wrapper {
+    	width: $rowWidth;
+    	ul {
+    	 float: left;
+      	li:first-child {
+        	margin-left: 0;
+      	}
+    	}
+  	}
+	}
+}
+
+#top {
+  padding: 9px 0 23px 0;
+}
+
+.page-wrapper {
+  .inner & {
+    background: #f5f5f5 url("img/header-background-inner.png") repeat-x left top;
+  }
+  .front & {
+    background: #f5f5f5 url("img/header-background-front.png") repeat-x left top;
+    .slider-area {
+      padding: 0;
+    }
+    #top {
+      padding-bottom: 0;
+    }
+  }
+  &#boxed-layout {
+    .slider-area {
+      padding: 20px 0;
+    }
+  }
+  .short-header & {
+    background: #f5f5f5 url("img/header-background-short-header.png") repeat-x left top;
+    .slider-area {
+      padding: 20px 0;
+    }
+  }
+}
+.main-content {
+  margin: 20px auto;
+}
+
+.inline {
+  display: inline;
+}
+
+// Typography
+
+#otw-site-title {
+  line-height: 52px;
+  float: left;
+  h1 {
+    text-indent: -9999px;
+    position: absolute;
+  }
+  img {
+    vertical-align: middle;
+  }
+}
+
+#otw-site-slogan {
+  color: #ffffff;
+  float: left;
+  margin-left: 15px;
+  padding-left: 15px;
+  background: transparent url("../../images/header-separator.png") no-repeat left center;
+  line-height: 70px;
+  @media only screen and (max-width: $rowWidth - 1) {
+    display: none;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  background: transparent url("../../images/hr-1.png") repeat-x left bottom;
+}
+
+h1 {padding-bottom: 25px; margin-bottom: 25px;}
+h2 {padding-bottom: 20px; margin-bottom: 20px;}
+h3 {padding-bottom: 17px; margin-bottom: 17px;}
+h4 {padding-bottom: 15px; margin-bottom: 15px;}
+h5 {padding-bottom: 15px; margin-bottom: 15px;}
+h6 {padding-bottom: 13px; margin-bottom: 13px;}
+
+
+.subheader {
+  font-family: $headerFontFamily;
+  font-size: ms(0);
+}
+
+.page-title-wrapper {
+  margin-bottom: 30px !important;
+	border-top: 1px solid #d8d8d8;
+	@include border-radius(3px);
+	.searchform {
+	  float: right;
+  	.search-input {
+  	  overflow: hidden;
+      background-color: #8f8f8f;
+      color: #ffffff;
+      -webkit-appearance: none !important;
+      @include border-radius(4px);
+      @include box-shadow(0 1px 0 rgba(255,255,255,0.15), inset 0 1px 3px rgba(0,0,0,0.5));
+      @include text-shadow(0 1px 2px rgba(0,0,0,0.5));
+      .ie8 & {
+        padding: 0 5px;
+        height: 30px;
+        line-height: 30px;
+        border: 1px solid #757575;
+      }
+  	}
+  	.search-submit {
+    	&.double-rounded {
+        @include border-radius(3px);
+    	}
+    	.ie8 &,
+    	.ie8 &:focus {
+      	border: 0 none;
+    	}
+  	}
+	}
+}
+
+@media only screen and (max-width: $screenSmall - 1) {
+  .page-title-wrapper {
+  	.searchform {
+  	  float: none;
+  	  overflow: hidden;
+    }
+  }
+}
+
+.fixed-width {
+  max-width: $rowWidth;
+  margin: 0 auto;
+}
+
+.page-title {
+  padding: 15px 10px;
+  margin: 0 1px;
+  @include gradient-active;
+  @include text-shadow(0 1px 2px rgba(0,0,0,0.5));
+  h1 {
+    color: #ffffff;
+    float: left;
+    font-size: ms(3);
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+  }
+  h2.subheader {
+    color: #ffffff;
+    float: left;
+    line-height: 30px;
+    margin: 0;
+    margin-left: 20px;
+    padding-bottom: 0;
+    padding-left: 27px;
+    background: transparent url("../../images/h1-title-separator.png") no-repeat left center;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .page-title {
+    h1 {
+      float: none;
+    }
+    h2.subheader {
+      float: none;
+      margin: 0;
+      padding: 0;
+      background-image: none;
+    }
+  }
+}
+
+.ie8 .page-title {
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b1b1b1', endColorstr='#888888',GradientType=0 );
+}
+
+// Breadcrumbs
+#breadcrumb {
+  font-size: ms(0) - 2;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  text-transform: lowercase;
+  a:hover,a:active { text-decoration: underline; }
+	border: 1px solid #e4e4e4;
+	border-top: 0 none;
+	@include border-radius(0 0 3px 3px);
+  @include box-shadow(0 1px 1px rgba(0,0,0,0.1));
+
+  position: relative;
+  left: -1px;
+  right: -1px;
+  width: $rowWidth + 2;
+  #boxed-layout & {
+    width: $rowWidth;
+    left: 0;
+    right: 0;
+  }
+  @media only screen and (max-width: $rowWidth) {
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+  .breadcrumb-sepreator {
+    margin: 0 3px;
+  }
+}
+
+
+.welcome-header {
+	font-family: $alternateHeaderFontFamily;
+	font-weight: normal;
+	color: #acacac;
+	text-transform: uppercase;
+	font-size: 18px;
+	line-height: 30px;
+	letter-spacing: 1px;
+	text-align: center;
+	margin-bottom: 43px;
+	margin-top: 21px;
+	em {
+		color: $mainColor;
+		font-style: normal;
+	}
+}
+
+// Images
+
+img {
+  vertical-align: bottom;
+  border: 0 none;
+	max-width: 100%;
+}
+
+// Lists
+ul {
+  li {
+    list-style-position: inside;
+    padding-left: 10px;
+  }
+
+}
+
+ol {
+  margin-left: 30px;
+}
+
+ul.otw-list {
+  padding-left: 20px;
+  li {
+    list-style-position: outside;
+    list-style-image: url("../../images/bullets/bullet-1.gif");
+    padding-left: 0;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+  }
+  // Unorders Icon List Style Types
+  &.with-icon {
+    &.list-style-1 li { list-style-image: url("../../images/bullets/bullet-1.gif"); }
+    &.list-style-2 li { list-style-image: url("../../images/bullets/bullet-2.gif"); }
+    &.list-style-3 li { list-style-image: url("../../images/bullets/bullet-3.gif"); }
+    &.list-style-4 li { list-style-image: url("../../images/bullets/bullet-4.gif"); }
+    &.list-style-5 li { list-style-image: url("../../images/bullets/bullet-5.gif"); }
+    &.list-style-6 li { list-style-image: url("../../images/bullets/bullet-6.gif"); }
+    &.list-style-7 li { list-style-image: url("../../images/bullets/bullet-7.gif"); }
+    &.list-style-8 li { list-style-image: url("../../images/bullets/bullet-8.gif"); }
+    &.list-style-9 li { list-style-image: url("../../images/bullets/bullet-9.gif"); }
+    &.list-style-10 li { list-style-image: url("../../images/bullets/bullet-10.gif"); }
+  }
+}
+
+ol.otw-list {
+  // Ordered List Style Types
+  &.lower-alpha li {
+    list-style-type: lower-alpha;
+  }
+  &.upper-roman li {
+    list-style-type: upper-roman;
+  }
+  &.lower-greek li {
+    list-style-type: lower-greek;
+  }
+}
+
+// List Widgets
+.otw-widget-list {
+  margin-bottom: 30px;
+  li {
+    a {
+      &:link,
+      &:visited {
+        color: $txtColor;
+      }
+      &:hover {
+        color: $mainColor;
+      }
+    }
+  }
+  li:hover:before,
+  li.active a,
+  li.active:before {
+    color: $mainColor;
+  }
+}
+
+// Header
+
+#top {
+	& > .otw-row {
+		@include clearfix();
+	}
+}
+
+// Navigation
+
+#primary {
+	height: 70px;
+	margin: 0;
+	@include clearfix();
+	.otw-primary-menu, .otw-primary-menu * {
+  	margin: 0;
+  	padding: 0;
+  	list-style: none;
+	}
+	.otw-primary-menu {
+    float: right;
+  	li {
+    	position: relative;
+    	display: block;
+    	margin-left: 1px;
+  	}
+  	ul {
+    	position: absolute;
+    	display: none;
+    	top: 100%;
+    	left: 0;
+    	z-index: 99;
+  	}
+  	> li {
+    	float: left;
+    	height: 70px;
+    	border-top: 1px solid transparent;
+    	&:last-child ul,
+    	&:nth-last-child(-n+2) ul {
+      	left: auto;
+      	right: 0;
+    	}
+    	> a {
+      	height: 33px;
+	    	padding: 18px 18px;
+      	vertical-align: middle;
+    	}
+    	&.active,
+    	&.sfHover,
+    	&:hover {
+      	background: transparent url("img/menu-active.png") repeat-x 0 0;
+      	border-top: 1px solid $mainColor;
+    	}
+    	&.active > a {
+      	color: $mainColor;
+    	}
+    }
+    li:hover > ul,
+    li.sfHover > ul {
+			width: 140px;
+			overflow: hidden;
+    }
+    li:hover ul,
+    li.sfHover ul {
+    	display: block;
+			background: $menuDropdownBackground;
+			width: 140px;
+			overflow: visible;
+			@include border-radius($borderRadius * 2);
+	    @include box-shadow(0 1px 4px rgba(0,0,0,0.55) inset, 0 1px 1px rgba(255,255,255,0.15));
+    	li {
+      	position: relative;
+      	padding: 0;
+      	margin: 0;
+      	width: 100%;
+      	a {
+					border-top: 1px solid lighten($menuDropdownBackground,7%);
+					border-bottom: 1px solid darken($menuDropdownBackground,7%);
+					@include text-shadow(0 1px 1px #000);
+					&:hover {
+						color: $white;
+						background: $mainColor;
+						@include background-image(linear-gradient(rgba(255,255,255,0.2), rgba(0,0,0,0.1)));
+					}
+				}
+				&:first-child > a {
+					border-top: 1px solid darken($menuDropdownBackground,70%);
+				  @include border-radius(($borderRadius * 2) ($borderRadius * 2) 0 0);
+				}
+				&:last-child > a {
+          border-bottom: none;
+				  @include border-radius(0 0 ($borderRadius * 2) ($borderRadius * 2));
+				}
+				&:hover > a {
+					border-top: 1px solid lighten($mainColor,25%);
+				}
+				&.sfHover > a {
+  				color: $white;
+  				background: $mainColor;
+  				border-top: 1px solid lighten($mainColor,25%);
+  				@include background-image(linear-gradient(rgba(255,255,255,0.2), rgba(0,0,0,0.1)));
+				}
+				&.sfHover ul {
+    			@include border-radius(0 ($borderRadius * 2) ($borderRadius * 2) ($borderRadius * 2));
+    			li:first-child > a {
+  				  @include border-radius(0 ($borderRadius * 2) 0 0);
+  				}
+  			}
+    	}
+  	}
+
+    a {
+			color: $menuTitleColor;
+    	display: block;
+    	font-family: $alternateHeaderFontFamily;
+    	font-size: 12px;
+    	font-weight: bold;
+			line-height: 15px;
+			padding: 10px 15px;
+    	position: relative;
+			text-transform: uppercase;
+			span.subtitle {
+				color: #cacaca;
+				display: block;
+				font-family: $bodyFontFamily;
+				font-size: 11px;
+				font-weight: normal;
+				text-transform: lowercase;
+			}
+    }
+    ul ul {
+    	top: 0;
+			left: 140px;
+    }
+	}
+  /* styling for menu arrows */
+  .sf-arrows {
+    .sf-with-ul:after {
+    	content: '';
+    	position: absolute;
+    	top: 20px;
+    	right: 5px;
+    	height: 7px;
+    	width: 8px;
+    	background: transparent url("../../images/sf-down.png") no-repeat 0 0;
+    	@include opacity(0.6);
+    }
+    .sf-with-ul:hover:after,
+    .sfHover > .sf-with-ul:after {
+      @include opacity(1);
+    }
+    /* styling for right-facing arrows */
+    ul .sf-with-ul:after {
+    	margin-top: -7px;
+    	margin-right: 0;
+    	background: transparent url("../../images/sf-right.png") no-repeat 0 0;
+    }
+  }
+	select {
+		border: 1px solid $lineColor;
+		width: 90%;
+		margin: 10px 5%;
+	}
+	@media only screen and (max-width: $screenSmall - 1) {
+  	height: auto;
+  	> ul {
+  		height: auto;
+  	}
+	}
+}
+
+#language-menu {
+	margin: 0;
+	float: right;
+  margin-left: 10px;
+  padding-left: 10px;
+  background: transparent url("../../images/header-separator.png") no-repeat left center;
+	ul {
+	  margin: 0;
+    list-style: none;
+		li {
+			display: block;
+			float: left;
+		  a {
+		    color: $white;
+      	font-size: 10px;
+    		font-weight: bold;
+		    height: 70px;
+        display: table-cell !important;
+        vertical-align: middle;
+      }
+			&.active a {
+  			color: $mainColor !important;
+			}
+		}
+	}
+}
+
+#top {
+	@media only screen and (max-width: $screenSmall - 1) {
+		#otw-site-title {
+			margin-left: 5%;
+		}
+    #language-menu {
+      background-image: none;
+      position: absolute;
+      top: 35px;
+      right: 5%;
+      ul li a {
+        height: 20px;
+      }
+    }
+	}
+	@media only screen and (min-width: $screenSmall) and (max-width: $rowWidth + 10) {
+		#otw-site-title {
+  		margin-left: 10px;
+		}
+		nav#primary {
+  		margin-right: 10px;
+		}
+		#language-menu {
+  		margin-right: 10px;
+		}
+	}
+}
+
+// Welcome text
+.otw-welcome-text {
+  text-align: center;
+  font-family: $headerFontFamily;
+  color: lighten($txtColor, 30%);
+  margin: ($columnGutter * 2) 0;
+  font-size: ms(0) + 1;
+  .otw-sc-divider {
+    width: 400px;
+    margin: 30px auto;
+  }
+  .otw-welcome-title {
+    color: $headerFontColor;
+    font-size: ms(5);
+    line-height: ms(4);
+    margin-bottom: 15px;
+  }
+  p {
+    font-style: italic;
+  }
+}
+
+// Carbon Post Item
+
+.animate-on-hover {
+  .image {
+    position: relative;
+    overflow: hidden;
+    @media only screen and (max-width: $rowWidth - 1) {
+      display: inline-block;
+      max-width: 100%;
+    }
+
+    img {
+      display: block;
+    }
+    .shadow-overlay {
+      display:block;
+      content:'';
+      position:absolute;
+      top:0;
+      width:100%;
+      height:100%;
+      background-color: rgba(0,0,0,0);
+      @include transition(background-color 400ms ease-in-out);
+    }
+    .link-overlay {
+      display: block;
+      position: absolute;
+      width: 66px;
+      height: 66px;
+      top: -30%;
+      left: 50%;
+      margin: -33px 0 0 -33px;
+      opacity: 0;
+      background: rgba(0,0,0,0.55) url("../../images/loupe-big.png") no-repeat center center;
+      @include border-radius(35px);
+      @include transition(all 250ms ease-in-out);
+    }
+    &:hover {
+      .shadow-overlay {
+        background-color: rgba(0,0,0,0.25);
+      }
+      .link-overlay {
+        opacity: 1;
+        top: 50%;
+        &:hover {
+          background-color: $mainColor;
+        }
+      }
+    }
+  }
+  &.tiny-loupe .image {
+    .link-overlay {
+      width: 30px;
+      height: 30px;
+      top: -30%;
+      margin: -15px 0 0 -15px;
+      background-size: 13px 13px;
+    }
+    &:hover {
+      .link-overlay {
+        top: 50%;
+        @include border-radius(35px);
+        &:hover {
+          background-color: $mainColor;
+        }
+      }
+    }
+  }
+}
+
+.ie8 .animate-on-hover .image {
+  .shadow-overlay {
+    background-color: #000;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  }
+  &:hover {
+    .shadow-overlay {
+      -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=25)";
+    }
+    .link-overlay {
+      background: #000 url("../../images/loupe-big.png") no-repeat center center;
+      -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=25)";
+      &:hover {
+        background-color: $mainColor;
+        -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+      }
+    }
+  }
+}
+
+.ie8 .animate-on-hover.tiny-loupe .image {
+  &:hover {
+    .link-overlay {
+      background-image: url("../../images/loupe-small.png");
+    }
+  }
+}
+
+// Global Styles
+
+.image, .image  > * {
+  @include border-radius($thumbRadius);
+}
+
+.image {
+  background-color: rgba(0,0,0,0.3);
+  @include box-shadow(0 1px 3px rgba(0,0,0,0.3));
+}
+
+#footer-contact-area-wrapper {
+    background-color: #efefef;
+    border-top: 1px solid #ffffff;
+    color: $headerFontColor;
+    font-family: $headerFontFamily;
+    padding: 30px 0;
+    text-align: center;
+  .footer-contact-area {
+    font-size: 19px;
+    .accent {
+      color: $mainColor;
+      font-weight: bold;
+    }
+  }
+}
+
+// Footer
+#page-footer {
+	color: $white;
+	background: $footerBackground;
+	font-size: 12px;
+	padding-top: 30px;
+
+	#{headings()},
+	.widget-title {
+    margin: 0 0 13px;
+    padding-bottom: 16px;
+  	color: $white;
+	}
+	.otw-widget-list .widget-title,
+	.widget-title {
+  	font-weight: normal;
+  	font-size: 17px;
+  	text-transform: none;
+  	letter-spacing: 0;
+  	background-image: url("../../images/footer-hr.png");
+	}
+	.otw-widget-list ul {
+  	li {
+    	a {
+      	line-height: 25px;
+    	}
+    	&.active a {
+      	color: $mainColor;
+    	}
+  	}
+	}
+	.otw-column, .otw-columns {
+		p: first-child {
+			margin-top: 12px;
+		}
+		p {
+			color: #b8b8b8;
+		}
+	}
+	span.contact {
+		display: block;
+		margin-bottom: 1em;
+	}
+	a {
+    @include transition(color 250ms ease-in-out);
+		color: $white;
+  	&:hover {
+  		color: $mainColor;
+  	}
+	}
+  .copyright {
+    border-top: 1px solid #393939;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  	color: $white;
+  	padding: 20px 0;
+    img {
+      max-height: 15px;
+      vertical-align: baseline;
+    }
+    a {
+      color: $mainColor;
+    }
+    > div {
+      font-size: 10px;
+      @media only screen and (max-width: $screenSmall - 1) {
+        float: none;
+        text-align: center;
+      }
+    }
+    #footer-menu {
+      li {
+        font-size: 10px;
+        float: left;
+        list-style: none;
+        margin: 0 20px 0 0;
+        padding: 0;
+        text-transform: uppercase;
+        a {
+          &:link, &:visited {
+            color: $white;
+          }
+          &:hover, &:active {
+            color: $mainColor;
+          }
+        }
+        @media only screen and (max-width: $rowWidth - 1) {
+          display: inline;
+          float: none;
+          margin: 0 5px;
+        }
+      }
+      @media only screen and (max-width: $rowWidth - 1) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+  #footerContactForm {
+    .field-name-wrapper {
+      display: inline-block;
+      width: 47%;
+      margin-right: 6%;
+      float: left;
+    }
+    .field-email-wrapper {
+      display: inline-block;
+      width: 47%;
+    }
+    .otw-button {
+      position: absolute;
+    }
+    .map-link {
+      text-align: right;
+      a {
+        color: $mainColor;
+        line-height: 30px;
+      }
+    }
+    input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
+      background-color: #161616;
+      background-color: rgba(22,22,22,0.5);
+      margin-bottom: 15px;
+      @include box-shadow(0 1px 0 rgba(255,255,255,0.15), inset 0 1px 4px rgba(0,0,0,0.5));
+      &:focus {
+        background-color: #0d0d0d;
+        background-color: rgba(13,13,13,0.5);
+        @include box-shadow(0 1px 0 rgba(255,255,255,0.20), inset 0 1px 4px rgb(0,0,0));
+      }
+    }
+    .ie8 & {
+      input, textarea {
+        border: 1px solid #000000 !important;
+      }
+    }
+  }
+}
+
+//
+// - Code Snippets -
+//
+
+// Table
+
+.otw-table {
+  @include rounded-shadow-box;
+  margin-bottom: $columnGutter;
+  overflow: hidden;
+  &.dark {
+    thead {
+      background-color: #f6f6f6;
+      color: #ffffff;
+      @include text-shadow(0 1px 0 #000);
+      @include gradient-active;
+    }
+  }
+}
+
+table {
+  background: #ffffff;
+  border: 0;
+  border-spacing: 0;
+  &.footable  {
+  	width: 100%;
+  }
+  thead {
+    font-family: $headerFontFamily;
+    color: $headerFontColor;
+    font-size: ms(0);
+    line-height: 18px;
+    @include text-shadow(0 1px 0 $white);
+    @include gradient-regular;
+    tr {
+      th {
+        display: table-cell;
+        font-weight: normal;
+        padding: 15px 15px;
+        border-top: 1px solid #f5f5f5;
+        border-left: 1px solid #cbcbcb;
+        &:first-child {
+          border-left: 0 none;
+        }
+      }
+    }
+  }
+  tfoot { background: #e5e5e5; }
+  tfoot tr td {
+    font-weight: normal;
+    display: table-cell;
+    line-height: 18px;
+    padding: 10px 15px;
+    text-align: #{$defaultFloat};
+  }
+  tbody tr {
+    &:hover {
+      background-color: #f7f7f7;
+    }
+    td {
+      padding: 12px 15px;
+      vertical-align: top;
+      border: none;
+      line-height: 18px;
+    }
+  }
+  tfoot tr,
+  tbody tr {
+    td {
+      border-top: 1px solid #e5e5e5;
+      border-left: 1px solid #e5e5e5;
+      &:first-child {
+        border-left: 0 none;
+      }
+    }
+  }
+}
+
+//
+// - Widgets -
+//
+#{headings()},
+.widget-title {
+  span {
+    font-weight: normal;
+  }
+}
+
+.widget-title {
+  font-family: $headerFontFamily;
+  font-weight: normal;
+  font-size: ms(3);
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  background: transparent url("../../images/hr-1.png") repeat-x left bottom;
+  .otw-widget-list & {
+    margin: 0 0 13px 0;
+    padding-bottom: 16px;
+  }
+}
+
+
+// Text
+
+// Pagination
+ul.pagination {
+  margin: 20px 0;
+  li {
+    display: inline-block;
+    padding: 0;
+    text-align: center;
+    a {
+      background-color: #ededed;
+      color: #777777;
+      display: block;
+      float: left;
+      font-size: 11px;
+      font-weight: bold;
+      line-height: 20px;
+      margin: 0 6px 0 0;
+      min-width: 20px;
+      text-transform: uppercase;
+      @include border-radius($borderRadius);
+      @include box-shadow(0 1px 0 #fff, 0 1px 4px rgba(0,0,0,0.15) inset);
+      @include text-shadow(0 1px 1px #ffffff);
+    }
+    &:hover a,
+    &.current a {
+      @include box-shadow(0 0 1px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.5) inset);
+      @include background-image(linear-gradient(#dadada, #c6c6c6));
+    }
+    &.prev a,
+    &.next a {
+      background: transparent;
+      background-image: none;
+      @include box-shadow(none);
+      @include text-shadow(none);
+    }
+    &.prev a {
+      margin-right: 30px;
+    }
+    &.next a {
+      margin-left: 24px;
+    }
+  }
+}
+
+// Error 404 page
+
+#error-404 {
+  text-align: center;
+  margin: 100px 0;
+  text-align: center;
+  p {
+    font-family: $alternateHeaderFontFamily;
+    color: $headerFontColor;
+    margin: 10px 0;
+    &.large-not-found {
+      font-family: $headerFontFamily;
+      font-size: 70px;
+      line-height: 80px;
+      margin: 0 0 10px 0;
+    }
+    &.medium-not-found {
+      font-size: ms(4);
+    }
+    &.small-not-found {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+//
+// Default Background, Text and Border Colors
+//
+
+// Background colors
+.red-background, .otw-button.red-background { background-color: $red; }
+.orange-background, .otw-button.orange-background { background-color: $orange; }
+.green-background, .otw-button.green-background { background-color: $green; }
+.greenish-background, .otw-button.greenish-background { background-color: $greenish; }
+.aqua-background, .otw-button.aqua-background { background-color: $aqua; }
+.blue-background, .otw-button.blue-background { background-color: $blue; }
+.pink-background, .otw-button.pink-background { background-color: $pink; }
+.purple-background, .otw-button.purple-background { background-color: $purple; }
+.silver-background, .otw-button.silver-background { background-color: $silver; }
+.brown-background, .otw-button.brown-background { background-color: $brown; }
+.black-background, .otw-button.black-background { background-color: $black; }
+.white-background, .otw-button.white-background { background-color: $white; }
+
+// Text colors
+.red-text { color: $red; }
+.orange-text { color: $orange; }
+.green-text { color: $green; }
+.greenish-text { color: $greenish; }
+.aqua-text { color: $aqua; }
+.blue-text { color: $blue; }
+.pink-text { color: $pink; }
+.purple-text { color: $purple; }
+.silver-text { color: $silver; }
+.brown-text { color: $brown; }
+.black-text { color: $black; }
+.white-text { color: $white; }
+
+// Border colors
+.red-border { border-color: $red; }
+.orange-border { border-color: $orange; }
+.green-border { border-color: $green; }
+.greenish-border { border-color: $greenish; }
+.aqua-border { border-color: $aqua; }
+.blue-border { border-color: $blue; }
+.pink-border { border-color: $pink; }
+.purple-border { border-color: $purple; }
+.silver-border { border-color: $silver; }
+.brown-border { border-color: $brown; }
+.black-border { border-color: $black; }
+.white-border { border-color: $white; }
+
+// Link colors
+.red-link a {
+  color: $red;
+  &:hover { color: darken($red, 15%); }
+  &:active { color: lighten($red, 10%); }
+}
+.orange-link a {
+  color: $orange;
+  &:hover { color: darken($orange, 15%); }
+  &:active { color: lighten($orange, 10%); }
+}
+.green-link a {
+  color: $green;
+  &:hover { color: darken($green, 15%); }
+  &:active { color: lighten($green, 10%); }
+}
+.greenish-link a {
+  color: $greenish;
+  &:hover { color: darken($greenish, 15%); }
+  &:active { color: lighten($greenish, 10%); }
+}
+.aqua-link a {
+  color: $aqua;
+  &:hover { color: darken($aqua, 15%); }
+  &:active { color: lighten($aqua, 10%); }
+}
+.blue-link a {
+  color: $blue;
+  &:hover { color: darken($blue, 15%); }
+  &:active { color: lighten($blue, 10%); }
+}
+.pink-link a {
+  color: $pink;
+  &:hover { color: darken($pink, 15%); }
+  &:active { color: lighten($pink, 10%); }
+}
+.purple-link a {
+  color: $purple;
+  &:hover { color: darken($purple, 15%); }
+  &:active { color: lighten($purple, 10%); }
+}
+.silver-link a {
+  color: $silver;
+  &:hover { color: darken($silver, 15%); }
+  &:active { color: lighten($silver, 10%); }
+}
+.brown-link a {
+  color: $brown;
+  &:hover { color: darken($brown, 15%); }
+  &:active { color: lighten($brown, 10%); }
+}
+.black-link a {
+  color: $black;
+  &:hover { color: darken($black, 15%); }
+  &:active { color: lighten($black, 10%); }
+}
+
+// Background title colors
+.red-title-gradient {
+  background-color: $red;
+  @include background-image(linear-gradient($red, darken($red, 20%)));
+}
+.orange-title-gradient {
+  background-color: $orange;
+  @include background-image(linear-gradient($orange, darken($orange, 20%)));
+}
+.green-title-gradient {
+  background-color: $green;
+  @include background-image(linear-gradient($green, darken($green, 20%)));
+}
+.greenish-title-gradient {
+  background-color: $greenish;
+  @include background-image(linear-gradient($greenish, darken($greenish, 20%)));
+}
+.aqua-title-gradient {
+  background-color: $aqua;
+  @include background-image(linear-gradient($aqua, darken($aqua, 20%)));
+}
+.blue-title-gradient {
+  background-color: $blue;
+  @include background-image(linear-gradient($blue, darken($blue, 20%)));
+}
+.pink-title-gradient {
+  background-color: $pink;
+  @include background-image(linear-gradient($pink, darken($pink, 20%)));
+}
+.purple-title-gradient {
+  background-color: $purple;
+  @include background-image(linear-gradient($purple, darken($purple, 20%)));
+}
+.silver-title-gradient {
+  background-color: $silver;
+  @include background-image(linear-gradient($silver, darken($silver, 20%)));
+}
+.brown-title-gradient {
+  background-color: $brown;
+  @include background-image(linear-gradient($brown, darken($brown, 20%)));
+}
+.black-title-gradient {
+  background-color: $black;
+  @include background-image(linear-gradient($black, darken($black, 20%)));
+}
+
+// Background title colors
+.red-title { #{headings()} { color: $red; }}
+.orange-title { #{headings()} { color: $orange; }}
+.green-title { #{headings()} { color: $green; }}
+.greenish-title { #{headings()} { color: $greenish; }}
+.aqua-title { #{headings()} { color: $aqua; }}
+.blue-title { #{headings()} { color: $blue; }}
+.pink-title { #{headings()} { color: $pink; }}
+.purple-title { #{headings()} { color: $purple; }}
+.silver-title { #{headings()} { color: $silver; }}
+.brown-title { #{headings()} { color: $brown; }}
+.black-title { #{headings()} { color: $black; }}

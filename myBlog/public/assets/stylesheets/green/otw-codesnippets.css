@@ -1,0 +1,220 @@
+.otw-cs-pricetable {
+  *zoom: 1;
+  border: 1px solid #e4e4e4;
+  overflow: hidden;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  overflow: visible;
+  margin: 20px 0;
+  z-index: 3;
+}
+@media only screen and (min-width: 600px) {
+  .otw-cs-pricetable {
+    display: block;
+    padding: 20px 20px 10px 20px;
+    background-color: #ffffff;
+    padding: 0;
+  }
+  .otw-cs-pricetable p {
+    margin-bottom: 10px;
+  }
+}
+.otw-cs-pricetable:before, .otw-cs-pricetable:after {
+  content: " ";
+  display: table;
+}
+.otw-cs-pricetable:after {
+  clear: both;
+}
+.otw-cs-pricetable ul.price-section {
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  z-index: 4;
+}
+@media only screen and (max-width: 599px) {
+  .otw-cs-pricetable ul.price-section {
+    margin-bottom: 20px;
+    display: block;
+    padding: 20px 20px 10px 20px;
+    background-color: #ffffff;
+    padding: 0;
+    width: 100%;
+  }
+  .otw-cs-pricetable ul.price-section p {
+    margin-bottom: 10px;
+  }
+}
+.otw-cs-pricetable ul.price-section:first-child li {
+  border-left: 0 !important;
+}
+.otw-cs-pricetable ul.price-section.column-header li {
+  text-align: left;
+  white-space: nowrap;
+}
+@media only screen and (max-width: 599px) {
+  .otw-cs-pricetable ul.price-section.column-header li {
+    display: none;
+  }
+}
+.otw-cs-pricetable ul.price-section li {
+  border-left: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+  list-style: none;
+  padding: 12px 15px;
+  margin: 0;
+}
+.otw-cs-pricetable ul.price-section li.column-price {
+  font-family: Chivo, Arial, sans-serif;
+  font-size: 16px;
+  color: #fd9309;
+}
+.otw-cs-pricetable ul.price-section li.column-title {
+  font-family: Chivo, Arial, sans-serif;
+  color: #383838;
+  font-size: 13px;
+  line-height: 18px;
+  border-left: 1px solid #cbcbcb;
+  text-shadow: 0 1px 0 white;
+  background-color: #e0e0e0;
+  background-image: none;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ececec), color-stop(100%, #e0e0e0));
+  background-image: -webkit-linear-gradient(#ececec, #e0e0e0);
+  background-image: -moz-linear-gradient(#ececec, #e0e0e0);
+  background-image: -o-linear-gradient(#ececec, #e0e0e0);
+  background-image: linear-gradient(#ececec, #e0e0e0);
+  font-size: 13px;
+  margin: 0;
+}
+.otw-cs-pricetable ul.price-section li.column-foot {
+  display: block;
+  height: 60px;
+}
+.otw-cs-pricetable ul.price-section li.column-foot .otw-button {
+  margin-bottom: 0;
+}
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+  .otw-cs-pricetable ul.price-section li.column-title {
+    font-size: 16px;
+  }
+  .otw-cs-pricetable ul.price-section li.column-price {
+    font-size: 24px;
+  }
+}
+.otw-cs-pricetable ul.price-section.special {
+  background-color: #fff0dd;
+  border: 1px solid #fecb87;
+  position: relative;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  z-index: 5;
+}
+@media only screen and (min-width: 600px) {
+  .otw-cs-pricetable ul.price-section.special {
+    margin: -10px 0 -8px 0;
+  }
+}
+.otw-cs-pricetable ul.price-section.special li {
+  border-left: 0;
+}
+.otw-cs-pricetable ul.price-section.special .column-title {
+  border-top: 0;
+  background: #fd9309;
+  color: #ffffff;
+  font-weight: bold;
+  padding-top: 23px;
+}
+.otw-cs-pricetable ul.price-section.special .column-foot {
+  vertical-align: middle;
+  height: 65px;
+}
+.ie8 .otw-cs-pricetable ul.price-section.special .column-title {
+  padding: 13px 15px 12px;
+}
+.ie8 .otw-cs-pricetable ul.price-section.special .column-foot {
+  padding: 12px 15px;
+  height: 58px;
+}
+
+.otw-cs-pricebox {
+  display: block;
+  padding: 20px 20px 10px 20px;
+  background-color: #ffffff;
+  border: 1px solid #e4e4e4;
+  overflow: hidden;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  padding: 0;
+  margin-bottom: 20px;
+}
+.otw-cs-pricebox p {
+  margin-bottom: 10px;
+}
+.otw-cs-pricebox .price-head {
+  font-family: Chivo, Arial, sans-serif;
+  color: #383838;
+  font-size: 13px;
+  margin: 0;
+  padding: 12px 25px;
+  line-height: 18px;
+  text-shadow: 0 1px 0 white;
+  background-color: #e0e0e0;
+  background-image: none;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ececec), color-stop(100%, #e0e0e0));
+  background-image: -webkit-linear-gradient(#ececec, #e0e0e0);
+  background-image: -moz-linear-gradient(#ececec, #e0e0e0);
+  background-image: -o-linear-gradient(#ececec, #e0e0e0);
+  background-image: linear-gradient(#ececec, #e0e0e0);
+}
+.otw-cs-pricebox .price {
+  padding: 12px 25px;
+  border-top: 1px solid #e4e4e4;
+  border-bottom: 1px solid #e4e4e4;
+  font-size: 20px;
+  word-spacing: 0.3em;
+  text-shadow: 1px 1px 0 white;
+}
+.otw-cs-pricebox .price span {
+  font-weight: bold;
+  font-size: 29px;
+  color: #fd9309;
+}
+.otw-cs-pricebox ul {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 0 10px 0 42px;
+  line-height: 1.4em;
+  width: 49%;
+}
+.otw-cs-pricebox ul li {
+  padding-left: 0;
+  margin-bottom: 5px;
+}
+.otw-cs-pricebox.dark .price-head {
+  background-color: #f6f6f6;
+  color: #ffffff;
+  text-shadow: 0 1px 0 black;
+  background-color: #888888;
+  background-image: none;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #b1b1b1), color-stop(100%, #888888));
+  background-image: -webkit-linear-gradient(#b1b1b1, #888888);
+  background-image: -moz-linear-gradient(#b1b1b1, #888888);
+  background-image: -o-linear-gradient(#b1b1b1, #888888);
+  background-image: linear-gradient(#b1b1b1, #888888);
+}
